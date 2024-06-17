@@ -1,26 +1,4 @@
-class Square
-    attr_accessor :completed, :value
-    
-    def initialize
-        @value = "."
-        @completed = false
-    end
-
-    def put_0
-        @value = "0"
-        @completed = true
-    end
-
-    def put_x
-        @value = "X"
-        @completed = true
-    end
-
-    def both
-        @value + @completed.to_s
-    end
-end
-
+require_relative './square.rb'
 class Board
     attr_accessor :grid, :values, :last_empty
     def initialize
@@ -74,7 +52,7 @@ class Board
         end
 
         7.times do |j|
-            (0..3).each do |i|
+            (0..2).each do |i|
               if @values[i][j] != '.' && @values[i][j] == @values[i + 1][j] && @values[i][j] == @values[i + 2][j] && @values[i][j] == @values[i + 3][j]
                 return true
               end
